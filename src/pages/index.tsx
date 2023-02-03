@@ -1,3 +1,5 @@
+import { ListCards } from '@/components/ListCards'
+
 export default function Home() {
-  return <h1>Hello WeFit</h1>
+  return <ListCards />
 }
