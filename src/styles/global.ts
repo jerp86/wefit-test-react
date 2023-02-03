@@ -29,8 +29,8 @@ export const globalStyles = globalCss({
 
   'body *': {
     fontFamily: '"Open Sans", sans-serif',
-    fontWeight: 400,
-    lineHeight: 1.4,
+    fontWeight: 700,
+    lineHeight: 1.35,
   },
 
   a: {
