@@ -16,7 +16,7 @@ export const Button = ({ children, quantity }: ButtonProps) => {
         <div>
           <Image
             src={cart}
-            alt="Add shopping cart white"
+            alt="White shopping cart with plus sign on top"
             loading="lazy"
             decoding="async"
           />
@@ -24,7 +24,7 @@ export const Button = ({ children, quantity }: ButtonProps) => {
         </div>
       )}
 
-      {children}
+      <span>{children}</span>
     </ButtonContainer>
   )
 }

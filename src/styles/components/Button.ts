@@ -19,8 +19,16 @@ export const ButtonContainer = styled('button', {
 
   variants: {
     quantity: {
-      true: { backgroundColor: '$green' },
-      false: { backgroundColor: '$blue' },
+      true: {
+        backgroundColor: '$green',
+
+        'div + span': {
+          minWidth: '15.7rem',
+        },
+      },
+      false: {
+        backgroundColor: '$blue',
+      },
     },
   },
 
