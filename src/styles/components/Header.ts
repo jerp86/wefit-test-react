@@ -2,7 +2,8 @@ import { styled } from '@/styles'
 
 export const HeaderContainer = styled('header', {
   width: '100%',
-  padding: '2.4rem 1rem',
+  height: '7.2rem',
+  padding: '1.8rem 1rem',
 
   display: 'flex',
   alignItems: 'center',
@@ -10,10 +11,6 @@ export const HeaderContainer = styled('header', {
 
   h2: {
     fontSize: '2rem',
-  },
-
-  '@sm': {
-    padding: '2rem 1rem',
   },
 })
 
@@ -36,6 +33,18 @@ export const HeaderSection = styled('section', {
       fontWeight: 600,
       fontSize: '1.2rem',
       color: '$gray100',
+    },
+  },
+
+  img: {
+    aspectRatio: 1,
+    objectFit: 'cover',
+    width: '3.2rem',
+  },
+
+  '@sm': {
+    '> div > p': {
+      display: 'none',
     },
   },
 })
