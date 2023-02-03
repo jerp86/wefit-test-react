@@ -1,4 +1,5 @@
 import { Header } from '@/components/Header'
+import { ListCards } from '@/components/ListCards'
 import { globalStyles } from '@/styles/global'
 import { AppContainer } from '@/styles/pages/_app'
 import type { AppProps } from 'next/app'
@@ -9,6 +10,8 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <AppContainer>
       <Header />
+
+      <ListCards />
 
       <Component {...pageProps} />
     </AppContainer>
