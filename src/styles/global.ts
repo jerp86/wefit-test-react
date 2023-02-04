@@ -37,6 +37,10 @@ export const globalStyles = globalCss({
     textDecoration: 'none',
   },
 
+  'a:visited': {
+    color: 'inherit',
+  },
+
   '.container': {
     width: '100%',
     maxWidth: '960px',
