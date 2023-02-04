@@ -32,7 +32,7 @@ export const HeaderSection = styled('section', {
     span: {
       fontWeight: 600,
       fontSize: '1.2rem',
-      color: '$gray100',
+      color: '$gray300',
     },
   },
 
