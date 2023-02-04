@@ -7,7 +7,7 @@ globalStyles()
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <AppContainer>
+    <AppContainer className="container">
       <Header />
 
       <Component {...pageProps} />
