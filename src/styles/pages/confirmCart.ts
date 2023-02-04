@@ -1,6 +1,6 @@
 import { styled } from '..'
 
-export const EmptyContainer = styled('main', {
+export const ConfirmCartContainer = styled('main', {
   width: '100%',
   backgroundColor: '$white',
   color: '$gray900',
@@ -24,5 +24,20 @@ export const EmptyContainer = styled('main', {
 
   button: {
     width: '18rem',
+  },
+
+  variants: {
+    content: {
+      empty: {
+        img: {
+          aspectRatio: 1.68,
+        },
+      },
+      confirm: {
+        img: {
+          aspectRatio: 0.96,
+        },
+      },
+    },
   },
 })
