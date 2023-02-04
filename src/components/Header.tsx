@@ -1,23 +1,35 @@
-import { HeaderContainer, HeaderSection } from '@/styles/components/Header'
-import bag from '@/assets/bag.svg'
 import Image from 'next/image'
+import Link from 'next/link'
+import bag from '@/assets/bag.svg'
+import { useCart } from '@/contexts/CartContext'
+import { HeaderContainer, HeaderSection } from '@/styles/components/Header'
 
-export const Header = () => (
-  <HeaderContainer className="container">
-    <h2>WeMovies</h2>
+export const Header = () => {
+  const { cartQuantity } = useCart()
 
-    <HeaderSection>
-      <div>
-        <p>Meu Carrinho</p>
-        <span>0 item</span>
-      </div>
+  const itemText = cartQuantity ? 'itens' : 'item'
 
-      <Image
-        src={bag}
-        alt="A shopping bag white"
-        loading="lazy"
-        decoding="async"
-      />
-    </HeaderSection>
-  </HeaderContainer>
-)
+  return (
+    <HeaderContainer className="container">
+      <Link href="/">
+        <h2>WeMovies</h2>
+      </Link>
+
+      <Link href="/cartWithItems">
+        <HeaderSection>
+          <div>
+            <p>Meu Carrinho</p>
+            <span>{`${cartQuantity} ${itemText}`}</span>
+          </div>
+
+          <Image
+            src={bag}
+            alt="A shopping bag white"
+            loading="lazy"
+            decoding="async"
+          />
+        </HeaderSection>
+      </Link>
+    </HeaderContainer>
+  )
+}
