@@ -18,9 +18,8 @@ export const EmptyContainer = styled('main', {
   },
 
   img: {
-    aspectRatio: 447 / 266,
+    aspectRatio: 1.68,
     objectFit: 'cover',
-    // width: '3.2rem',
   },
 
   button: {

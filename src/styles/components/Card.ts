@@ -27,7 +27,7 @@ export const CardContainer = styled('div', {
       gap: '0.8rem',
 
       img: {
-        aspectRatio: 147 / 188,
+        aspectRatio: 0.78,
         objectFit: 'cover',
       },
 
