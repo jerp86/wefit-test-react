@@ -38,8 +38,17 @@ export const globalStyles = globalCss({
   },
 
   '.container': {
+    width: '100%',
     maxWidth: '960px',
     marginLeft: 'auto',
     marginRight: 'auto',
+
+    '@md': {
+      padding: '0 1rem',
+    },
+
+    '@sm': {
+      padding: '0 1.6rem',
+    },
   },
 })
