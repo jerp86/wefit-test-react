@@ -25,5 +25,7 @@ export const {
   },
   media: {
     sm: '(max-width: 480px)',
+    md: '(max-width: 960px)',
+    lg: '(min-width: 961px)',
   },
 })
