@@ -16,6 +16,7 @@ export const CardContainer = styled('div', {
     display: 'flex',
     flexDirection: 'column',
     gap: '0.2rem',
+    color: '$gray500',
 
     p: {
       textAlign: 'center',
