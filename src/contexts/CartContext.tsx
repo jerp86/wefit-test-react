@@ -35,6 +35,8 @@ interface CartContextProviderProps {
 const MOVIE_ITEMS_STORAGE_KEY = 'WeMovies:cartItems'
 
 const fetchLocalStorage = (): CartItem[] => {
+  if (typeof window === 'undefined') return []
+
   const storedCartItems = localStorage.getItem(MOVIE_ITEMS_STORAGE_KEY)
   if (storedCartItems) return JSON.parse(storedCartItems)
 
@@ -111,6 +113,8 @@ export const CartContextProvider = ({ children }: CartContextProviderProps) => {
   const cleanCart = () => setCartItems([])
 
   useEffect(() => {
+    if (typeof window === 'undefined') return
+
     localStorage.setItem(MOVIE_ITEMS_STORAGE_KEY, JSON.stringify(cartItems))
   }, [cartItems])
 
