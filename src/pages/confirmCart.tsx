@@ -1,4 +1,3 @@
-import emptyImg from '@/assets/empty.svg'
 import confirmImg from '@/assets/confirm.svg'
 import { Button } from '@/components/Button'
 import Image from 'next/image'
@@ -7,6 +6,8 @@ import { useCart } from '@/contexts/CartContext'
 import Link from 'next/link'
 import { GetStaticProps } from 'next'
 import { timerToRevalidate } from '@/utils/timerToRevalidate'
+import { useEffect } from 'react'
+import { Loader } from '@/components/Loader'
 
 interface Option {
   title: string
@@ -23,7 +24,17 @@ interface ConfirmCartProps {
 export default function ConfirmCart({ options }: ConfirmCartProps) {
   const { cartQuantity, cleanCart } = useCart()
 
-  const { alt, height, src, title, width } = options[cartQuantity]
+  const { alt, height, src, title, width } = options[0]
+
+  useEffect(() => {
+    if (cartQuantity > 0) {
+      cleanCart()
+    }
+  }, [cartQuantity, cleanCart])
+
+  if (cartQuantity > 0) {
+    return <Loader />
+  }
 
   return (
     <ConfirmCartContainer content={cartQuantity ? 'confirm' : 'empty'}>
@@ -39,7 +50,7 @@ export default function ConfirmCart({ options }: ConfirmCartProps) {
       />
 
       <Link href="/" prefetch={false}>
-        <Button onClick={() => cleanCart()}>Voltar</Button>
+        <Button>Voltar</Button>
       </Link>
     </ConfirmCartContainer>
   )
@@ -47,13 +58,6 @@ export default function ConfirmCart({ options }: ConfirmCartProps) {
 
 export const getStaticProps: GetStaticProps = () => {
   const options = [
-    {
-      title: 'Parece que não há nada por aqui :(',
-      src: emptyImg,
-      alt: 'Standing woman with black hair, black clothing and light overcoat, holding a circle with a blue background containing a circle of 2 clockwise arrows. Illustration.',
-      width: 447,
-      height: 266,
-    },
     {
       title: 'Compra realizada com sucesso!',
       src: confirmImg,
