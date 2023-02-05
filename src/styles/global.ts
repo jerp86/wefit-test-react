@@ -46,6 +46,7 @@ export const globalStyles = globalCss({
     maxWidth: '960px',
     marginLeft: 'auto',
     marginRight: 'auto',
+    marginBottom: '7.6rem',
 
     '@md': {
       padding: '0 1rem',
