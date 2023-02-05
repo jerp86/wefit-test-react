@@ -12,6 +12,10 @@ export const HeaderContainer = styled('header', {
   h2: {
     fontSize: '2rem',
   },
+
+  'a, a:visited': {
+    color: 'inherit',
+  },
 })
 
 export const HeaderSection = styled('section', {
