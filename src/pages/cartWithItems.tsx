@@ -7,6 +7,7 @@ import {
   Footer,
 } from '@/styles/pages/cartWithItems'
 import { formattedPrice } from '@/utils/formattedPrice'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useCallback, useEffect } from 'react'
 
@@ -42,7 +43,9 @@ export default function CartWithItems() {
       <hr />
 
       <Footer>
-        <Button>Finalizar pedido</Button>
+        <Link href="/confirmCart">
+          <Button>Finalizar pedido</Button>
+        </Link>
 
         <section>
           <p>Total</p>
