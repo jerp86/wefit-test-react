@@ -119,7 +119,7 @@ export const CartContextProvider = ({ children }: CartContextProviderProps) => {
 
     const movieAlreadyExistsInCart = movieExistsInCart(movieId)
 
-    if (movieAlreadyExistsInCart <= 0) return 0
+    if (movieAlreadyExistsInCart < 0) return 0
 
     return cartItems[movieAlreadyExistsInCart]?.quantity
   }
