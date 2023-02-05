@@ -125,7 +125,7 @@ export const CartContextProvider = ({ children }: CartContextProviderProps) => {
   }
 
   useEffect(() => {
-    if (typeof window === 'undefined') return
+    if (cartItems.length === 0) return
 
     localStorage.setItem(MOVIE_ITEMS_STORAGE_KEY, JSON.stringify(cartItems))
   }, [cartItems])
