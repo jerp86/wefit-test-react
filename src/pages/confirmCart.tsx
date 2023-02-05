@@ -5,25 +5,22 @@ import Image from 'next/image'
 import { ConfirmCartContainer } from '@/styles/pages/confirmCart'
 import { useCart } from '@/contexts/CartContext'
 import Link from 'next/link'
+import { GetStaticProps } from 'next'
+import { timerToRevalidate } from '@/utils/timerToRevalidate'
 
-const options = [
-  {
-    title: 'Parece que não há nada por aqui :(',
-    src: emptyImg,
-    alt: 'Standing woman with black hair, black clothing and light overcoat, holding a circle with a blue background containing a circle of 2 clockwise arrows. Illustration.',
-    width: 447,
-    height: 266,
-  },
-  {
-    title: 'Compra realizada com sucesso!',
-    src: confirmImg,
-    alt: 'Man with black hair, light shirt, dark pants, has the thumb of his left hand raised, behind a circle with a blue background with a confirmation symbol above his thumb. On the left side at the front is a completed form. Illustration.',
-    width: 295,
-    height: 307,
-  },
-]
+interface Option {
+  title: string
+  src: string
+  alt: string
+  width: number
+  height: number
+}
 
-export default function ConfirmCart() {
+interface ConfirmCartProps {
+  options: Option[]
+}
+
+export default function ConfirmCart({ options }: ConfirmCartProps) {
   const { cartQuantity, cleanCart } = useCart()
 
   const { alt, height, src, title, width } = options[cartQuantity]
@@ -46,4 +43,30 @@ export default function ConfirmCart() {
       </Link>
     </ConfirmCartContainer>
   )
+}
+
+export const getStaticProps: GetStaticProps = () => {
+  const options = [
+    {
+      title: 'Parece que não há nada por aqui :(',
+      src: emptyImg,
+      alt: 'Standing woman with black hair, black clothing and light overcoat, holding a circle with a blue background containing a circle of 2 clockwise arrows. Illustration.',
+      width: 447,
+      height: 266,
+    },
+    {
+      title: 'Compra realizada com sucesso!',
+      src: confirmImg,
+      alt: 'Man with black hair, light shirt, dark pants, has the thumb of his left hand raised, behind a circle with a blue background with a confirmation symbol above his thumb. On the left side at the front is a completed form. Illustration.',
+      width: 295,
+      height: 307,
+    },
+  ]
+
+  return {
+    props: {
+      options,
+    },
+    revalidate: timerToRevalidate(),
+  }
 }
