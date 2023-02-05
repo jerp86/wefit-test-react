@@ -90,6 +90,12 @@ export const CartContextProvider = ({ children }: CartContextProviderProps) => {
 
         if (movieAlreadyExistsInCart >= 0) {
           const { quantity } = draft[movieAlreadyExistsInCart]
+
+          if (quantity <= 1) {
+            draft.splice(movieAlreadyExistsInCart, 1)
+            return
+          }
+
           draft[movieAlreadyExistsInCart].quantity =
             type === 'increase' ? quantity + 1 : quantity - 1
         }
@@ -125,8 +131,6 @@ export const CartContextProvider = ({ children }: CartContextProviderProps) => {
   }
 
   useEffect(() => {
-    if (cartItems.length === 0) return
-
     localStorage.setItem(MOVIE_ITEMS_STORAGE_KEY, JSON.stringify(cartItems))
   }, [cartItems])
 
