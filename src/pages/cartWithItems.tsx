@@ -34,11 +34,9 @@ export default function CartWithItems() {
         <span>Subtotal</span>
       </CartWithItemsHeader>
 
-      <main>
-        {cartItems.map((item) => (
-          <Item product={item} key={item.id} />
-        ))}
-      </main>
+      {cartItems.map((item) => (
+        <Item product={item} key={item.id} />
+      ))}
 
       <hr />
 

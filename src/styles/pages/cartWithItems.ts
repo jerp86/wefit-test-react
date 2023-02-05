@@ -15,33 +15,13 @@ export const CartWithItemsContainer = styled('div', {
     objectFit: 'cover',
   },
 
-  main: {
-    width: '100%',
-    color: '$gray900',
-    display: 'flex',
-    alignItems: 'center',
-    flexWrap: 'wrap',
-    gap: '5.2rem',
-
-    '& > img': {
-      aspectRatio: 0.78,
-    },
-
-    button: {
-      border: 'none',
-      backgroundColor: 'transparent',
-      lineHeight: 0,
-
-      img: {
-        aspectRatio: 1,
-        width: '1.8rem',
-      },
-    },
-  },
-
   hr: {
     width: '100%',
     border: '1px solid $gray300',
+  },
+
+  '@sm': {
+    padding: '1.6rem',
   },
 })
 
