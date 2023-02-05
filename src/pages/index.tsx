@@ -1,4 +1,5 @@
 import { ListCards } from '@/components/ListCards'
+import { Loader } from '@/components/Loader'
 import { Movie } from '@/contexts/CartContext'
 import { api } from '@/lib/axios'
 import { GetStaticProps } from 'next'
@@ -8,6 +9,10 @@ interface HomeProps {
 }
 
 export default function Home({ products }: HomeProps) {
+  if (products.length === 0 || !products[0]?.id) {
+    return <Loader />
+  }
+
   return <ListCards products={products} />
 }
 
