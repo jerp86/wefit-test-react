@@ -86,4 +86,23 @@ export const SectionQuantity = styled('section', {
 export const Subtotal = styled('p', {
   width: 'min(100%, 21.369rem)',
   fontSize: '1.6rem',
+  color: '$gray900',
+
+  span: {
+    display: 'none',
+  },
+
+  '@sm': {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-end',
+    justifyContent: 'center',
+
+    span: {
+      display: 'inherit',
+      fontSize: '1.2rem',
+      color: '$gray300',
+      textTransform: 'uppercase',
+    },
+  },
 })

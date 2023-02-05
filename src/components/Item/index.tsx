@@ -46,7 +46,10 @@ export const Item = ({ product }: CartItemProps) => {
         onIncrease={handleIncrease}
       />
 
-      <Subtotal>{subtotal}</Subtotal>
+      <Subtotal>
+        <span>Subtotal</span>
+        {subtotal}
+      </Subtotal>
 
       <TrashButton type="button" onClick={handleRemove} />
     </ItemContainer>
