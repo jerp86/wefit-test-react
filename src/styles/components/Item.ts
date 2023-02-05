@@ -3,20 +3,39 @@ import { styled } from '..'
 export const ItemContainer = styled('section', {
   width: '100%',
   color: '$gray900',
+
   display: 'flex',
   alignItems: 'center',
-  flexWrap: 'wrap',
   gap: '5.2rem',
+
+  alignSelf: 'stretch',
 
   '& > img': {
     aspectRatio: 0.78,
   },
 
+  div: {
+    width: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '5.2rem',
+  },
+
   '@sm': {
-    flexDirection: 'column',
     alignItems: 'flex-start',
     flexWrap: 'nowrap',
-    gap: '2.1rem',
+    gap: '1.6rem',
+
+    div: {
+      flexDirection: 'column',
+      alignItems: 'flex-start',
+      justifyContent: 'center',
+      gap: '1.6rem',
+
+      '> button': {
+        display: 'none',
+      },
+    },
   },
 })
 

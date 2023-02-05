@@ -34,24 +34,26 @@ export const Item = ({ product }: CartItemProps) => {
         decoding="async"
       />
 
-      <Description
-        title={product.title}
-        price={product.price}
-        onClick={handleRemove}
-      />
+      <div>
+        <Description
+          title={product.title}
+          price={product.price}
+          onClick={handleRemove}
+        />
 
-      <Quantity
-        quantity={product.quantity}
-        onDecrease={handleDecrease}
-        onIncrease={handleIncrease}
-      />
+        <Quantity
+          quantity={product.quantity}
+          onDecrease={handleDecrease}
+          onIncrease={handleIncrease}
+        />
 
-      <Subtotal>
-        <span>Subtotal</span>
-        {subtotal}
-      </Subtotal>
+        <Subtotal>
+          <span>Subtotal</span>
+          {subtotal}
+        </Subtotal>
 
-      <TrashButton type="button" onClick={handleRemove} />
+        <TrashButton type="button" onClick={handleRemove} />
+      </div>
     </ItemContainer>
   )
 }
