@@ -9,6 +9,7 @@ export const ButtonContainer = styled('button', {
   gap: '1.2rem',
   padding: '0.8rem',
 
+  backgroundColor: '$blue',
   border: 'none',
   borderRadius: '4px',
 
@@ -17,23 +18,13 @@ export const ButtonContainer = styled('button', {
   textAlign: 'center',
   textTransform: 'uppercase',
 
-  variants: {
-    quantity: {
-      true: {
-        backgroundColor: '$green',
+  '&:disabled': {
+    opacity: 1,
+    backgroundColor: '$green',
 
-        'div + span': {
-          minWidth: '15.7rem',
-        },
-      },
-      false: {
-        backgroundColor: '$blue',
-      },
+    'div + span': {
+      minWidth: '15.7rem',
     },
-  },
-
-  defaultVariants: {
-    quantity: false,
   },
 
   div: {
@@ -44,7 +35,7 @@ export const ButtonContainer = styled('button', {
     img: {
       aspectRatio: 1,
       objectFit: 'cover',
-      width: '1.36rem',
+      width: 'auto',
     },
 
     span: {

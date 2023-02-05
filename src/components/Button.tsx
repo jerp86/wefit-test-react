@@ -4,23 +4,28 @@ import { ButtonContainer } from '@/styles/components/Button'
 import cart from '@/assets/cart.svg'
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  quantity?: number
+  hasIcon: boolean
 }
 
-export const Button = ({ children, quantity }: ButtonProps) => {
-  const hasQuantity = quantity || quantity === 0
-
+export const Button = ({
+  children,
+  hasIcon,
+  disabled,
+  ...rest
+}: ButtonProps) => {
   return (
-    <ButtonContainer quantity={!!quantity}>
-      {hasQuantity && (
+    <ButtonContainer disabled={disabled} {...rest}>
+      {hasIcon && (
         <div>
           <Image
             src={cart}
             alt="White shopping cart with plus sign on top"
             loading="lazy"
             decoding="async"
+            width={15}
+            height={15}
           />
-          <span>{quantity}</span>
+          <span>{disabled ? 1 : 0}</span>
         </div>
       )}
 
