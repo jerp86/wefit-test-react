@@ -12,11 +12,11 @@ export const Header = () => {
 
   return (
     <HeaderContainer className="container">
-      <Link href="/">
+      <Link href="/" prefetch={false}>
         <h2>WeMovies</h2>
       </Link>
 
-      <Link href={href}>
+      <Link href={href} prefetch={false}>
         <HeaderSection>
           <div>
             <p>Meu Carrinho</p>
