@@ -11,7 +11,7 @@ export const Header = () => {
   const href = cartQuantity ? '/cartWithItems' : '/emptyCart'
 
   return (
-    <HeaderContainer className="container">
+    <HeaderContainer>
       <Link href="/" prefetch={false}>
         <h2>WeMovies</h2>
       </Link>
