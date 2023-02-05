@@ -2,6 +2,7 @@ import { ListCards } from '@/components/ListCards'
 import { Loader } from '@/components/Loader'
 import { Movie } from '@/contexts/CartContext'
 import { api } from '@/lib/axios'
+import { timerToRevalidate } from '@/utils/timerToRevalidate'
 import { GetStaticProps } from 'next'
 
 interface HomeProps {
@@ -17,11 +18,6 @@ export default function Home({ products }: HomeProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const seconds = 60
-  const minutes = 60
-  const hours = 24
-  const days = 7
-
   const response = await api.get<Movie[]>('/products')
 
   const movies = response.data.map((movie) => {
@@ -37,6 +33,6 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       products: movies,
     },
-    revalidate: seconds * minutes * hours * days,
+    revalidate: timerToRevalidate(),
   }
 }
