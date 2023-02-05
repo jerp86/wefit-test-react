@@ -12,16 +12,11 @@ export const ItemContainer = styled('section', {
     aspectRatio: 0.78,
   },
 
-  button: {
-    border: 'none',
-    backgroundColor: 'transparent',
-    lineHeight: 0,
-
-    img: {
-      aspectRatio: 1,
-      width: 'auto',
-      height: 'auto',
-    },
+  '@sm': {
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    flexWrap: 'nowrap',
+    gap: '2.1rem',
   },
 })
 
@@ -38,6 +33,20 @@ export const SectionDescription = styled('section', {
 
   span: {
     fontSize: '1.6rem',
+  },
+
+  button: {
+    display: 'none',
+  },
+
+  '@sm': {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: '1.6rem',
+
+    button: {
+      display: 'initial',
+    },
   },
 })
 
