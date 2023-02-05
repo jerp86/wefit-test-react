@@ -3,6 +3,8 @@ import confirmImg from '@/assets/confirm.svg'
 import { Button } from '@/components/Button'
 import Image from 'next/image'
 import { ConfirmCartContainer } from '@/styles/pages/confirmCart'
+import { useCart } from '@/contexts/CartContext'
+import Link from 'next/link'
 
 const options = [
   {
@@ -22,11 +24,12 @@ const options = [
 ]
 
 export default function ConfirmCart() {
-  const hasItems = 1
-  const { alt, height, src, title, width } = options[hasItems]
+  const { cartQuantity, cleanCart } = useCart()
+
+  const { alt, height, src, title, width } = options[cartQuantity]
 
   return (
-    <ConfirmCartContainer content={hasItems ? 'confirm' : 'empty'}>
+    <ConfirmCartContainer content={cartQuantity ? 'confirm' : 'empty'}>
       <h1>{title}</h1>
 
       <Image
@@ -38,7 +41,9 @@ export default function ConfirmCart() {
         height={height}
       />
 
-      <Button>Voltar</Button>
+      <Link href="/" prefetch={false}>
+        <Button onClick={() => cleanCart()}>Voltar</Button>
+      </Link>
     </ConfirmCartContainer>
   )
 }
