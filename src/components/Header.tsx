@@ -8,6 +8,7 @@ export const Header = () => {
   const { cartQuantity } = useCart()
 
   const itemText = cartQuantity ? 'itens' : 'item'
+  const href = cartQuantity ? '/cartWithItems' : '/confirmCart'
 
   return (
     <HeaderContainer className="container">
@@ -15,7 +16,7 @@ export const Header = () => {
         <h2>WeMovies</h2>
       </Link>
 
-      <Link href="/cartWithItems">
+      <Link href={href}>
         <HeaderSection>
           <div>
             <p>Meu Carrinho</p>
