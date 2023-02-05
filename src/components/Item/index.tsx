@@ -1,14 +1,9 @@
-import minus from '@/assets/minus.svg'
-import plus from '@/assets/plus.svg'
 import { CartItem, useCart } from '@/contexts/CartContext'
-import {
-  ItemContainer,
-  SectionQuantity,
-  Subtotal,
-} from '@/styles/components/Item'
+import { ItemContainer, Subtotal } from '@/styles/components/Item'
 import { formattedPrice } from '@/utils/formattedPrice'
 import Image from 'next/image'
 import { Description } from './Description'
+import { Quantity } from './Quantity'
 import { TrashButton } from './TrashButton'
 
 interface CartItemProps {
@@ -45,27 +40,11 @@ export const Item = ({ product }: CartItemProps) => {
         onClick={handleRemove}
       />
 
-      <SectionQuantity>
-        <button type="button" onClick={handleDecrease}>
-          <Image
-            src={minus}
-            alt="Circle with blue borders and the minus sign in the center"
-            loading="lazy"
-            decoding="async"
-          />
-        </button>
-
-        <span>{product.quantity}</span>
-
-        <button type="button" onClick={handleIncrease}>
-          <Image
-            src={plus}
-            alt="Circle with blue borders and the plus sign in the center"
-            loading="lazy"
-            decoding="async"
-          />
-        </button>
-      </SectionQuantity>
+      <Quantity
+        quantity={product.quantity}
+        onDecrease={handleDecrease}
+        onIncrease={handleIncrease}
+      />
 
       <Subtotal>{subtotal}</Subtotal>
 
