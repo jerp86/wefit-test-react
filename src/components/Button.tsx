@@ -4,12 +4,12 @@ import { ButtonContainer } from '@/styles/components/Button'
 import cart from '@/assets/cart.svg'
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  hasIcon: boolean
+  hasIcon?: boolean
 }
 
 export const Button = ({
   children,
-  hasIcon,
+  hasIcon = false,
   disabled,
   ...rest
 }: ButtonProps) => {
