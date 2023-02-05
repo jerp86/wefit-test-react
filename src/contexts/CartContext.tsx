@@ -24,8 +24,10 @@ interface CartContextType {
   cartQuantity: number
   addMovieToCart: (movie: CartItem) => void
   changeCartItemQuantity: (value: ChangeCartItemQuantityProps) => void
-  removeCartItem: (itemId: number) => void
   cleanCart: () => void
+  movieExistsInCart: (itemId: number) => number
+  quantityMovieInStorage: (itemId: number) => number
+  removeCartItem: (itemId: number) => void
 }
 
 interface CartContextProviderProps {
@@ -46,7 +48,7 @@ const fetchLocalStorage = (): CartItem[] => {
 export const CartContext = createContext({} as CartContextType)
 
 export const CartContextProvider = ({ children }: CartContextProviderProps) => {
-  const [cartItems, setCartItems] = useState<CartItem[]>(fetchLocalStorage())
+  const [cartItems, setCartItems] = useState<CartItem[]>([])
 
   const cartQuantity = cartItems.length
 
@@ -112,11 +114,25 @@ export const CartContextProvider = ({ children }: CartContextProviderProps) => {
 
   const cleanCart = () => setCartItems([])
 
+  const quantityMovieInStorage = (movieId: number) => {
+    if (!cartItems || cartItems.length <= 0) return 0
+
+    const movieAlreadyExistsInCart = movieExistsInCart(movieId)
+
+    if (movieAlreadyExistsInCart <= 0) return 0
+
+    return cartItems[movieAlreadyExistsInCart]?.quantity
+  }
+
   useEffect(() => {
     if (typeof window === 'undefined') return
 
     localStorage.setItem(MOVIE_ITEMS_STORAGE_KEY, JSON.stringify(cartItems))
   }, [cartItems])
+
+  useEffect(() => {
+    setCartItems(fetchLocalStorage())
+  }, [])
 
   return (
     <CartContext.Provider
@@ -127,6 +143,8 @@ export const CartContextProvider = ({ children }: CartContextProviderProps) => {
         addMovieToCart,
         changeCartItemQuantity,
         cleanCart,
+        movieExistsInCart,
+        quantityMovieInStorage,
         removeCartItem,
       }}
     >
