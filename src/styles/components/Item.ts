@@ -61,7 +61,9 @@ export const SectionDescription = styled('section', {
   '@sm': {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between',
     gap: '1.6rem',
+    alignSelf: 'stretch',
 
     button: {
       display: 'initial',
