@@ -1,18 +1,30 @@
-import minus from '@/assets/minus.svg'
-import plus from '@/assets/plus.svg'
-import trash from '@/assets/trash.svg'
 import { Button } from '@/components/Button'
+import { Item } from '@/components/Item'
+import { useCart } from '@/contexts/CartContext'
 import {
   CartWithItemsContainer,
   CartWithItemsHeader,
   Footer,
-  SectionDescription,
-  SectionQuantity,
-  Subtotal,
 } from '@/styles/pages/cartWithItems'
-import Image from 'next/image'
+import { formattedPrice } from '@/utils/formattedPrice'
+import { useRouter } from 'next/router'
+import { useCallback, useEffect } from 'react'
 
 export default function CartWithItems() {
+  const { cartItems, cartItemsTotal } = useCart()
+  const router = useRouter()
+
+  const returnToHome = useCallback(async () => {
+    if (cartItems.length === 0) {
+      await router.push('/')
+      return <></>
+    }
+  }, [cartItems.length, router])
+
+  useEffect(() => {
+    returnToHome()
+  }, [returnToHome])
+
   return (
     <CartWithItemsContainer>
       <CartWithItemsHeader>
@@ -22,52 +34,9 @@ export default function CartWithItems() {
       </CartWithItemsHeader>
 
       <main>
-        <Image
-          src="/x.png"
-          alt=""
-          width={89}
-          height={114}
-          loading="lazy"
-          decoding="async"
-        />
-
-        <SectionDescription>
-          <p>Homem Aranha</p>
-          <span>R$ 29,99</span>
-        </SectionDescription>
-
-        <SectionQuantity>
-          <button>
-            <Image
-              src={minus}
-              alt="Circle with blue borders and the minus sign in the center"
-              loading="lazy"
-              decoding="async"
-            />
-          </button>
-
-          <span>1</span>
-
-          <button>
-            <Image
-              src={plus}
-              alt="Circle with blue borders and the plus sign in the center"
-              loading="lazy"
-              decoding="async"
-            />
-          </button>
-        </SectionQuantity>
-
-        <Subtotal>R$ 29,99</Subtotal>
-
-        <button>
-          <Image
-            src={trash}
-            alt="Trash can with blue rims, painted blue"
-            loading="lazy"
-            decoding="async"
-          />
-        </button>
+        {cartItems.map((item) => (
+          <Item product={item} key={item.id} />
+        ))}
       </main>
 
       <hr />
@@ -77,7 +46,7 @@ export default function CartWithItems() {
 
         <section>
           <p>Total</p>
-          <span>R$ 29,90</span>
+          <span>{formattedPrice.format(cartItemsTotal)}</span>
         </section>
       </Footer>
     </CartWithItemsContainer>
