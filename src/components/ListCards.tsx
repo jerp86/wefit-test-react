@@ -1,13 +1,15 @@
+import { Movie } from '@/contexts/CartContext'
 import { ListCardsContainer } from '@/styles/components/ListCards'
 import { Card } from './Card'
 
-export const ListCards = () => (
+interface List {
+  products: Movie[]
+}
+
+export const ListCards = ({ products }: List) => (
   <ListCardsContainer className="container">
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
+    {products.map((prod) => (
+      <Card key={prod.id} product={prod} />
+    ))}
   </ListCardsContainer>
 )
