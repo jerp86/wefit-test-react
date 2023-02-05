@@ -1,15 +1,15 @@
 import minus from '@/assets/minus.svg'
 import plus from '@/assets/plus.svg'
-import trash from '@/assets/trash.svg'
 import { CartItem, useCart } from '@/contexts/CartContext'
 import {
   ItemContainer,
-  SectionDescription,
   SectionQuantity,
   Subtotal,
 } from '@/styles/components/Item'
 import { formattedPrice } from '@/utils/formattedPrice'
 import Image from 'next/image'
+import { Description } from './Description'
+import { TrashButton } from './TrashButton'
 
 interface CartItemProps {
   product: CartItem
@@ -39,10 +39,11 @@ export const Item = ({ product }: CartItemProps) => {
         decoding="async"
       />
 
-      <SectionDescription>
-        <p>{product.title}</p>
-        <span>{formattedPrice.format(product.price)}</span>
-      </SectionDescription>
+      <Description
+        title={product.title}
+        price={product.price}
+        onClick={handleRemove}
+      />
 
       <SectionQuantity>
         <button type="button" onClick={handleDecrease}>
@@ -68,16 +69,7 @@ export const Item = ({ product }: CartItemProps) => {
 
       <Subtotal>{subtotal}</Subtotal>
 
-      <button type="button" onClick={handleRemove}>
-        <Image
-          src={trash}
-          alt="Trash can with blue rims, painted blue"
-          loading="lazy"
-          decoding="async"
-          width={18}
-          height={18}
-        />
-      </button>
+      <TrashButton type="button" onClick={handleRemove} />
     </ItemContainer>
   )
 }
