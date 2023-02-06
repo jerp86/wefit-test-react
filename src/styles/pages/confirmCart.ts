@@ -11,6 +11,7 @@ export const ConfirmCartContainer = styled('main', {
   flexDirection: 'column',
   alignItems: 'center',
   gap: '3.2rem',
+  overflow: 'hidden',
 
   h1: {
     fontSize: '2rem',
@@ -24,6 +25,10 @@ export const ConfirmCartContainer = styled('main', {
 
   button: {
     width: '18rem',
+
+    span: {
+      fontSize: '1.4rem',
+    },
   },
 
   variants: {
