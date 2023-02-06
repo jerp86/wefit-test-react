@@ -21,7 +21,12 @@ export const CartWithItemsContainer = styled('div', {
   },
 
   '@sm': {
+    minHeight: 'calc(100vh - 7.2rem - 1.6rem)',
     padding: '1.6rem',
+
+    hr: {
+      marginTop: 'auto',
+    },
   },
 })
 

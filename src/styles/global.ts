@@ -54,6 +54,7 @@ export const globalStyles = globalCss({
 
     '@sm': {
       padding: '0 1.6rem',
+      marginBottom: '1.6rem',
     },
   },
 })
