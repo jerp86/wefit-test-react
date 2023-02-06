@@ -57,33 +57,3 @@ export const CartWithItemsHeader = styled('header', {
     display: 'none',
   },
 })
-
-export const Footer = styled('footer', {
-  width: '100%',
-  display: 'flex',
-  flexDirection: 'row',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-
-  button: {
-    width: '23.542rem',
-  },
-
-  section: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '0.5rem',
-
-    p: {
-      color: '$gray300',
-      fontSize: '1.4rem',
-      textAlign: 'center',
-    },
-
-    span: {
-      fontSize: '2.4rem',
-      color: '$gray900',
-      textAlign: 'center',
-    },
-  },
-})

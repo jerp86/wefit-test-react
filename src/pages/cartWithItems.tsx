@@ -1,13 +1,10 @@
-import { Button } from '@/components/Button'
+import { Footer } from '@/components/Footer'
 import { Item } from '@/components/Item'
 import { useCart } from '@/contexts/CartContext'
 import {
   CartWithItemsContainer,
   CartWithItemsHeader,
-  Footer,
 } from '@/styles/pages/cartWithItems'
-import { formattedPrice } from '@/utils/formattedPrice'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useCallback, useEffect } from 'react'
 
@@ -40,16 +37,7 @@ export default function CartWithItems() {
 
       <hr />
 
-      <Footer>
-        <Link href="/confirmCart">
-          <Button>Finalizar pedido</Button>
-        </Link>
-
-        <section>
-          <p>Total</p>
-          <span>{formattedPrice.format(cartItemsTotal)}</span>
-        </section>
-      </Footer>
+      <Footer buttonText="Finalizar pedido" total={cartItemsTotal} />
     </CartWithItemsContainer>
   )
 }
