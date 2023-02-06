@@ -73,6 +73,7 @@ export const SectionDescription = styled('section', {
   },
 
   '@sm': {
+    maxWidth: '100%',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
