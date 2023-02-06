@@ -1,6 +1,7 @@
 import produce from 'immer'
 import { ReactNode, useCallback, useEffect, useMemo, useState } from 'react'
 import { createContext, useContextSelector } from 'use-context-selector'
+import { saveLocalStorage, fetchLocalStorage } from './utils'
 
 export interface Movie {
   id: number
@@ -32,17 +33,6 @@ interface CartContextType {
 
 interface CartContextProviderProps {
   children: ReactNode
-}
-
-const MOVIE_ITEMS_STORAGE_KEY = 'WeMovies:cartItems'
-
-const fetchLocalStorage = (): CartItem[] => {
-  if (typeof window === 'undefined') return []
-
-  const storedCartItems = localStorage.getItem(MOVIE_ITEMS_STORAGE_KEY)
-  if (storedCartItems) return JSON.parse(storedCartItems)
-
-  return []
 }
 
 export const CartContext = createContext({} as CartContextType)
@@ -106,36 +96,48 @@ export const CartContextProvider = ({ children }: CartContextProviderProps) => {
     [cartItems, movieExistsInCart],
   )
 
-  const removeCartItem = (itemId: number) => {
-    const newCart = produce(cartItems, (draft) => {
-      const movieAlreadyExistsInCart = movieExistsInCart(itemId)
+  const removeCartItem = useCallback(
+    (itemId: number) => {
+      const newCart = produce(cartItems, (draft) => {
+        const movieAlreadyExistsInCart = movieExistsInCart(itemId)
 
-      if (movieAlreadyExistsInCart >= 0) {
-        draft.splice(movieAlreadyExistsInCart, 1)
-      }
-    })
+        if (movieAlreadyExistsInCart >= 0) {
+          draft.splice(movieAlreadyExistsInCart, 1)
+        }
+      })
 
-    setCartItems(newCart)
-  }
+      setCartItems(newCart)
+    },
+    [cartItems, movieExistsInCart],
+  )
 
-  const cleanCart = () => setCartItems([])
+  const quantityMovieInStorage = useCallback(
+    (movieId: number) => {
+      if (!cartItems || cartItems.length <= 0) return 0
 
-  const quantityMovieInStorage = (movieId: number) => {
-    if (!cartItems || cartItems.length <= 0) return 0
+      const movieAlreadyExistsInCart = movieExistsInCart(movieId)
 
-    const movieAlreadyExistsInCart = movieExistsInCart(movieId)
+      if (movieAlreadyExistsInCart < 0) return 0
 
-    if (movieAlreadyExistsInCart < 0) return 0
+      return cartItems[movieAlreadyExistsInCart]?.quantity
+    },
+    [cartItems, movieExistsInCart],
+  )
 
-    return cartItems[movieAlreadyExistsInCart]?.quantity
-  }
+  const cleanCart = useCallback(() => {
+    setCartItems([])
+    saveLocalStorage([])
+  }, [])
 
   useEffect(() => {
-    localStorage.setItem(MOVIE_ITEMS_STORAGE_KEY, JSON.stringify(cartItems))
+    if (cartItems.length === 0) return
+
+    saveLocalStorage(cartItems)
   }, [cartItems])
 
   useEffect(() => {
-    setCartItems(fetchLocalStorage())
+    const localCartItems = fetchLocalStorage()
+    setCartItems(localCartItems)
   }, [])
 
   return (
