@@ -87,7 +87,7 @@ npm ci
 ```
 - Inicie a fake API e o projeto juntos:
 ```
-npm start
+npm run dev:start
 ```
 
 Caso tenha interesse em rodar em terminais separados, você pode utilizar o seguinte:
