@@ -40,8 +40,8 @@ export const ItemContainer = styled('section', {
       gap: '1.6rem',
 
       '> div': {
-        backgroundColor: 'Red',
-        width: 231,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
         gap: '1.6rem',
       },
 
@@ -137,7 +137,7 @@ export const Subtotal = styled('p', {
   },
 
   '@sm': {
-    width: '100%',
+    width: 'fit-content',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-end',
