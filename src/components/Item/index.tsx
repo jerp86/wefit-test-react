@@ -41,16 +41,18 @@ export const Item = ({ product }: CartItemProps) => {
           onClick={handleRemove}
         />
 
-        <Quantity
-          quantity={product.quantity}
-          onDecrease={handleDecrease}
-          onIncrease={handleIncrease}
-        />
+        <div>
+          <Quantity
+            quantity={product.quantity}
+            onDecrease={handleDecrease}
+            onIncrease={handleIncrease}
+          />
 
-        <Subtotal>
-          <span>Subtotal</span>
-          {subtotal}
-        </Subtotal>
+          <Subtotal>
+            <span>Subtotal</span>
+            {subtotal}
+          </Subtotal>
+        </div>
 
         <TrashButton type="button" onClick={handleRemove} />
       </div>

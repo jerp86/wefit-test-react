@@ -19,6 +19,13 @@ export const ItemContainer = styled('section', {
     display: 'flex',
     alignItems: 'center',
     gap: '5.2rem',
+
+    '> div': {
+      with: '100%',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '5.2rem',
+    },
   },
 
   '@sm': {
@@ -32,6 +39,12 @@ export const ItemContainer = styled('section', {
       justifyContent: 'center',
       gap: '1.6rem',
 
+      '> div': {
+        backgroundColor: 'Red',
+        width: 231,
+        gap: '1.6rem',
+      },
+
       '> button': {
         display: 'none',
       },
@@ -40,7 +53,8 @@ export const ItemContainer = styled('section', {
 })
 
 export const SectionDescription = styled('section', {
-  width: 'min(100%, 25.3rem)',
+  width: 'max(100%, 25.3rem)',
+  maxWidth: '253px',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
@@ -102,6 +116,15 @@ export const SectionQuantity = styled('section', {
     fontSize: '1.4rem',
     textAlign: 'center',
   },
+
+  '@sm': {
+    width: '11.7rem',
+
+    span: {
+      width: '100%',
+      padding: '0.35rem 1.2rem',
+    },
+  },
 })
 
 export const Subtotal = styled('p', {
@@ -114,6 +137,7 @@ export const Subtotal = styled('p', {
   },
 
   '@sm': {
+    width: '100%',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-end',
