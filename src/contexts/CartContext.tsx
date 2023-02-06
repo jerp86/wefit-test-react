@@ -91,7 +91,7 @@ export const CartContextProvider = ({ children }: CartContextProviderProps) => {
         if (movieAlreadyExistsInCart >= 0) {
           const { quantity } = draft[movieAlreadyExistsInCart]
 
-          if (quantity <= 1) {
+          if (type === 'decrease' && quantity <= 1) {
             draft.splice(movieAlreadyExistsInCart, 1)
             return
           }
