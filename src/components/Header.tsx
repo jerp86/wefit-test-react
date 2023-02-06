@@ -7,7 +7,7 @@ import { HeaderContainer, HeaderSection } from '@/styles/components/Header'
 export const Header = () => {
   const { cartQuantity } = useCart()
 
-  const itemText = cartQuantity ? 'itens' : 'item'
+  const itemText = cartQuantity > 1 ? 'itens' : 'item'
   const href = cartQuantity ? '/cartWithItems' : '/emptyCart'
 
   return (
