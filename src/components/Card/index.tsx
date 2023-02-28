@@ -1,10 +1,10 @@
 import weFit from '@/assets/wefit.png'
 import { Movie, useCart } from '@/contexts/CartContext'
-import { CardContainer } from '@/styles/components/Card'
 import { formattedPrice } from '@/utils/formattedPrice'
 import Image from 'next/image'
-import { Button } from './Button'
-import { Loader } from './Loader'
+import { Button } from '../Button'
+import { Loader } from '../Loader'
+import { CardContainer } from './styles'
 
 interface CardProps {
   product: Movie

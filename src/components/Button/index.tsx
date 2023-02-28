@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes } from 'react'
 import Image from 'next/image'
-import { ButtonContainer } from '@/styles/components/Button'
 import cart from '@/assets/cart.svg'
+import { ButtonContainer } from './styles'
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   hasIcon?: boolean

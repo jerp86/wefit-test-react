@@ -1,4 +1,4 @@
-import { styled } from '..'
+import { styled } from '@/styles'
 
 export const ButtonContainer = styled('button', {
   width: '100%',

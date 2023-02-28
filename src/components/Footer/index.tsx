@@ -1,7 +1,7 @@
-import { FooterContainer } from '@/styles/components/Footer'
 import { formattedPrice } from '@/utils/formattedPrice'
 import Link from 'next/link'
-import { Button } from './Button'
+import { Button } from '../Button'
+import { FooterContainer } from './styles'
 
 interface FooterProps {
   buttonText: string

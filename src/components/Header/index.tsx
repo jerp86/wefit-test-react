@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import bag from '@/assets/bag.svg'
 import { useCart } from '@/contexts/CartContext'
-import { HeaderContainer, HeaderSection } from '@/styles/components/Header'
+import { HeaderContainer, HeaderSection } from './styles'
 
 export const Header = () => {
   const { cartQuantity } = useCart()

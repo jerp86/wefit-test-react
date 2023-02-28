@@ -1,4 +1,4 @@
-import { styled } from '..'
+import { styled } from '../../styles'
 
 export const ListCardsContainer = styled('div', {
   width: '100%',

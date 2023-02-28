@@ -1,7 +1,7 @@
 import trash from '@/assets/trash.svg'
-import { TrashButtonContainer } from '@/styles/components/TrashButton'
 import Image from 'next/image'
 import { ButtonHTMLAttributes } from 'react'
+import { TrashButtonContainer } from './styles'
 
 export const TrashButton = (props: ButtonHTMLAttributes<HTMLButtonElement>) => (
   <TrashButtonContainer {...props}>

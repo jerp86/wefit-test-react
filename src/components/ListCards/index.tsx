@@ -1,6 +1,6 @@
 import { Movie } from '@/contexts/CartContext'
-import { ListCardsContainer } from '@/styles/components/ListCards'
-import { Card } from './Card'
+import { Card } from '../Card'
+import { ListCardsContainer } from './styles'
 
 interface List {
   products: Movie[]

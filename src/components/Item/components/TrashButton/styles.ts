@@ -1,4 +1,4 @@
-import { styled } from '..'
+import { styled } from '../../../../styles'
 
 export const TrashButtonContainer = styled('button', {
   border: 'none',

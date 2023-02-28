@@ -1,7 +1,7 @@
 import minus from '@/assets/minus.svg'
 import plus from '@/assets/plus.svg'
-import { SectionQuantity } from '@/styles/components/Item'
 import Image from 'next/image'
+import { SectionQuantity } from '../styles'
 
 interface QuantityProps {
   quantity: number

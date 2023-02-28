@@ -1,5 +1,5 @@
-import { SectionDescription } from '@/styles/components/Item'
 import { formattedPrice } from '@/utils/formattedPrice'
+import { SectionDescription } from '../styles'
 import { TrashButton } from './TrashButton'
 
 interface DescriptionProps {

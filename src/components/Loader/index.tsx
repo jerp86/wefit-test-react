@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import loaderImage from '@/assets/Loader.png'
-import { LoaderContainer } from '@/styles/components/Loader'
+import { LoaderContainer } from '@/components/Loader/Loader'
 
 export const Loader = () => (
   <LoaderContainer>

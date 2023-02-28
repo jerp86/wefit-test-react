@@ -1,10 +1,8 @@
 import { CartItem, useCart } from '@/contexts/CartContext'
-import { ItemContainer, Subtotal } from '@/styles/components/Item'
 import { formattedPrice } from '@/utils/formattedPrice'
 import Image from 'next/image'
-import { Description } from './Description'
-import { Quantity } from './Quantity'
-import { TrashButton } from './TrashButton'
+import { Description, Quantity, TrashButton } from './components'
+import { ItemContainer, Subtotal } from './styles'
 
 interface CartItemProps {
   product: CartItem
