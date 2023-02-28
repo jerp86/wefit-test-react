@@ -10,7 +10,7 @@ interface FooterProps {
 
 export const Footer = ({ buttonText, total }: FooterProps) => (
   <FooterContainer>
-    <Link href="/confirmCart" prefetch={false}>
+    <Link href="/confirm-cart" prefetch={false}>
       <Button>{buttonText}</Button>
     </Link>
 

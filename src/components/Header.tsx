@@ -8,7 +8,7 @@ export const Header = () => {
   const { cartQuantity } = useCart()
 
   const itemText = cartQuantity > 1 ? 'itens' : 'item'
-  const href = cartQuantity ? '/cartWithItems' : '/emptyCart'
+  const href = cartQuantity ? '/cart-with-items' : '/empty-cart'
 
   return (
     <HeaderContainer>
